@@ -6,7 +6,7 @@
 <body>
 	<h1>Login</h1>
 
-	<form action="" method="post">
+	<form action="index.php" method="post">
 		<input type="text" name="username"><br>
 		<input type="password" name="password"><br>
 		<input type="submit" name="login">
@@ -20,22 +20,29 @@
 
 		echo "Conectado";
 
-		$query = 'SELECT * FROM usuaris';
-		$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
+		$query = 'SELECT * FROM usuaris where nom ==';
 
-		echo "<table>\n";
-		while ($line = pg_fetch_array($result, null, PGSQL_ASSOC)) {
-		    echo "\t<tr>\n";
-		    foreach ($line as $col_value) {
-		        echo "\t\t<td>$col_value</td>\n";
-		    }
-		    echo "\t</tr>\n";
-		}
-		echo "</table>\n";
+		if(isset($_POST['username']) and (isset($_POST['password']))){
+ 			$nombre = $_POST['username'];
+ 			echo $nombre;
+ 			$password = $_POST['password'];
+ 			echo $password;
+ 			
+ 			$query = 'SELECT * FROM usuaris where nom ="'.$nombre.'" and password = "'.$password.'"';
 
-		pg_free_result($result);
+			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
+ 			
 
-		// Cerrando la conexión
+ 			if(isset($result)){
+
+        echo "Bienvenido '".$result["nom"]."'";
+
+
+      }else{
+
+        echo "Usuario o Password incorrectos";
+
+      }
 		pg_close($dbconn);
 	?>
 </body>

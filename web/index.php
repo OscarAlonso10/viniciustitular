@@ -34,7 +34,7 @@
 
  			if(pg_num_rows($result)){
 
-        	echo "Bienvenido '".$result['nom']."'";
+        	echo "Bienvenido";
 
 
       		}else{

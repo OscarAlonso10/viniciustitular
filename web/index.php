@@ -32,7 +32,7 @@
 			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
  			
 
- 			if(isset($result)){
+ 			if(pg_num_rows($result)){
 
         	echo "Bienvenido '".$result['nom']."'";
 

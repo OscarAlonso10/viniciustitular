@@ -20,13 +20,12 @@
 
 		echo "Conectado";
 
-		$query = 'SELECT * FROM usuaris where nom ==';
 
 		if(isset($_POST['username']) and (isset($_POST['password']))){
+
  			$nombre = $_POST['username'];
- 			echo $nombre;
+ 			
  			$password = $_POST['password'];
- 			echo $password;
  			
  			$query = 'SELECT * FROM usuaris where nom ="'.$nombre.'" and password = "'.$password.'"';
 
@@ -35,14 +34,14 @@
 
  			if(isset($result)){
 
-        echo "Bienvenido '".$result["nom"]."'";
+        	echo "Bienvenido '".$result["nom"]."'";
 
 
-      }else{
+      	}else{
 
-        echo "Usuario o Password incorrectos";
+        	echo "Usuario o Password incorrectos";
 
-      }
+      	}
 		pg_close($dbconn);
 	?>
 </body>

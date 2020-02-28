@@ -18,7 +18,6 @@
 		$dbconn = pg_connect($dbopts)
 	    or die('Could not connect: ' . pg_last_error());
 
-		echo "Conectado";
 
 
 		if(isset($_POST['username']) and (isset($_POST['password']))){

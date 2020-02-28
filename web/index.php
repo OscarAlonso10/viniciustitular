@@ -34,7 +34,7 @@
 
  			if(isset($result)){
 
-        	echo 'Bienvenido "'.$result['nom'].'"';
+        	echo "Bienvenido '".$result['nom']."'";
 
 
       		}else{

@@ -27,7 +27,7 @@
  			
  			$password = $_POST['password'];
  			
- 			$query = 'SELECT * FROM usuaris where nom ="'.$nombre.'" and password = "'.$password.'"';
+ 			$query = 'SELECT * FROM usuaris where nom ="{$nombre}" and password = "{$password}"';
 
 			$result = pg_query($query) or die('La consulta fallo: ' . pg_last_error());
  			
@@ -40,7 +40,7 @@
       		}else{
 
         	echo "Usuario o Password incorrectos";
-        	}
+        }
 
       	}
 		pg_close($dbconn);

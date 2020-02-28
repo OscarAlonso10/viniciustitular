@@ -37,9 +37,10 @@
         	echo "Bienvenido '".$result["nom"]."'";
 
 
-      	}else{
+      		}else{
 
         	echo "Usuario o Password incorrectos";
+        	}
 
       	}
 		pg_close($dbconn);
